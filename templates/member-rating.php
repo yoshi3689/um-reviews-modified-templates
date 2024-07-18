@@ -7,6 +7,12 @@
  * Caller: um_reviews_add_rating() function
  * @version 2.2.3
  *
+ * Changes:
+ * - Added check for the current user's roles to determine if the content should be blurred.
+ * - Applied the 'blurred-content' class conditionally based on the user's role.
+ * - Date: 2024-07-15
+ * - Author: [Your Name or Initials]
+ *
  * This template can be overridden by copying it to yourtheme/ultimate-member/um-reviews/member-rating.php
  * @var int $user_id
  */
