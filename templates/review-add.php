@@ -7,12 +7,19 @@
  * @version 2.2.3
  *
  * This template can be overridden by copying it to yourtheme/ultimate-member/um-reviews/review-add.php
+ * 
+ * Changes made to this template:
+ * - Added a check to see if users have exchanged messages before allowing them to write a review.
+ * - Date: 2024-07-15
+ * - Author: Y.N.
  */
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-if ( UM()->Reviews()->api()->can_review( um_profile_id() ) ) {
+$have_exchanged_messages = apply_filters('check_users_messages', um_profile_id());
+
+if ( UM()->Reviews()->api()->can_review( um_profile_id() )  &&  $have_exchanged_messages ) {
 
 	um_fetch_user( get_current_user_id() ); ?>
 
